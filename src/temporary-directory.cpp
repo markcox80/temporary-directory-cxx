@@ -6,6 +6,7 @@ extern "C" {
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fts.h>
+#include <string.h>
 }
 
 #include <stdexcept>
@@ -61,13 +62,13 @@ delete_directory_and_files(const string &directory)
   const char *path_argv[2];
   path_argv[0] = directory.c_str();
   path_argv[1] = NULL;
-  
+
   FTS *fts = fts_open((char * const *)path_argv, FTS_PHYSICAL | FTS_NOSTAT | FTS_XDEV, NULL);
   FTSENT *fts_entry = fts_read(fts);
 
   while (fts_entry != NULL) {
     const char *path = fts_entry->fts_path;
-    
+
     switch(fts_entry->fts_info) {
     case FTS_D:
       // A directory being visted in pre-order.
