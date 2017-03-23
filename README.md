@@ -13,6 +13,7 @@ Example
 #include <iostream>
 
 using namespace std;
+using namespace temporary_directory;
 
 int
 main(int argc, char **argv)

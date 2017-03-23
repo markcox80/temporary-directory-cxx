@@ -4,6 +4,7 @@
 #include <fstream>
 
 using namespace std;
+using namespace temporary_directory;
 
 TEST_CASE("directory_exists_p") {
   REQUIRE(directory_exists_p(default_temporary_directory()));
@@ -13,7 +14,7 @@ TEST_CASE("directory_exists_p") {
 TEST_CASE("file_exists_p") {
   TemporaryDirectory tmp;
   REQUIRE(!tmp == false);
-  
+
   string pathname = tmp("hello.txt");
   REQUIRE(!file_exists_p(pathname));
   ofstream out(pathname);
@@ -30,7 +31,7 @@ TEST_CASE( "Temporary Directory", "[TemporaryDirectory]") {
       REQUIRE(!tmp == false);
       location = tmp.location();
       REQUIRE(directory_exists_p(location));
-      
+
     }
     REQUIRE(!directory_exists_p(location));
   }

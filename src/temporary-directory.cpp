@@ -15,9 +15,10 @@ extern "C" {
 #include <iostream>
 
 using namespace std;
+using namespace temporary_directory;
 
 string
-default_temporary_directory()
+temporary_directory::default_temporary_directory()
 {
   const char *runtime_location = getenv("TMPDIR");
   const char *system_location = "/tmp/";
@@ -29,7 +30,7 @@ default_temporary_directory()
 }
 
 bool
-file_exists_p(const string &pathname)
+temporary_directory::file_exists_p(const string &pathname)
 {
   struct stat buf;
   int result = stat(pathname.c_str(), &buf);
@@ -43,7 +44,7 @@ file_exists_p(const string &pathname)
 }
 
 bool
-directory_exists_p(const string &pathname)
+temporary_directory::directory_exists_p(const string &pathname)
 {
   struct stat buf;
   int result = stat(pathname.c_str(), &buf);
@@ -57,7 +58,7 @@ directory_exists_p(const string &pathname)
 }
 
 void
-delete_directory_and_files(const string &directory)
+temporary_directory::delete_directory_and_files(const string &directory)
 {
   const char *path_argv[2];
   path_argv[0] = directory.c_str();
