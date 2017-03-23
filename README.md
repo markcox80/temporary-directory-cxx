@@ -18,6 +18,10 @@ int
 main(int argc, char **argv)
 {
   TemporaryDirectory tmpdir;
+  if (!tmpdir) {
+    cerr << "Unable to create temporary directory." << endl;
+    return 1;
+  }
 
   string pathname = tmpdir("example.txt");
   cout << pathname << endl;
