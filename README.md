@@ -1,7 +1,7 @@
 Temporary Directory (C++)
 =========================
 
-A stupidly simple way of creating temporary directories.
+A stupidly simple way to create temporary directories.
 
 Example
 -------
@@ -56,7 +56,7 @@ The software can be built and installed using the following commands.
 The Temporary directory library can be used in your CMake managed
 project using the following commands.
 
-   find_package(temporary-directory REQUIRED)
+    find_package(temporary-directory REQUIRED)
 
-   add_library(are-you-talking-to-me are-you-talking-to-me.cpp)
-   target_link_libraries(are-you-talking-to-me temporary-directory)
+    add_library(are-you-talking-to-me are-you-talking-to-me.cpp)
+    target_link_libraries(are-you-talking-to-me temporary-directory)
